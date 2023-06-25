@@ -1,0 +1,12 @@
+initdb -D /home/postgres/data
+pg_ctl -D /home/postgres/data -l logfile start
+#as postgres
+. psql.env
+PGUSER=postgres createuser -S -d -r dev
+createdb --owner=dev dev
+cat psql.env
+
+# start
+pg_ctl start -D /home/postgres/data -l logfile -o -i
+# stop
+pg_ctl stop  -D /home/postgres/data -l logfile -o -i

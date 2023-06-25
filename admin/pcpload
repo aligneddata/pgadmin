@@ -1,0 +1,8 @@
+[ "$2" = '' ] && echo "$0 <table> <file>" && exit 3
+[ "$PGSQSEP" = '' ] && PGSQSEP=\|
+#psql -q --command "truncate table $1"
+#psql -q --command "\copy $1 from '$2' delimiter as '|'" 
+
+echo "Load file [$2] into table [$1]"
+#psql -q --command "truncate table $1"
+psql -q --command "\copy $1 from '$2' delimiter as '$PGSQSEP'" 

@@ -1,0 +1,1 @@
+psql -A -t -q --command "$*"

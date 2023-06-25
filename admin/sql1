@@ -1,0 +1,8 @@
+if [ -f "$*" ]
+then
+        psql -d $PGDATABASE -t -A -q -f $*
+else
+        psql -d $PGDATABASE -t -A -q --command "$*"  # -F ,
+fi
+
+
